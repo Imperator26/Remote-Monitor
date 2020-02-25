@@ -12,4 +12,10 @@ async def gather_info():
 
     info['disk'] = psutil.disk_usage('/')
 
+
+    try:
+        info['sensors_temperature'] = psutil.sensors_temperatures()
+    except AttributeError:
+        pass
+
     return info
