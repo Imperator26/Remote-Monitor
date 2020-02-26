@@ -12,6 +12,7 @@ async def gather_info():
 
     info['disk'] = psutil.disk_usage('/')
 
+    info['network'] = psutil.net_io_counters(nowrap=True)
 
     try:
         info['sensors_temperature'] = psutil.sensors_temperatures()
