@@ -5,7 +5,9 @@ async def gather_info():
     info = dict()
 
     info['cpu_percent'] = psutil.cpu_percent(interval=1)
-    info['load_avg'] = [x / psutil.cpu_count() * 100 for x in psutil.getloadavg()]
+    info['load_avg'] = [
+        x / psutil.cpu_count() * 100 for x in psutil.getloadavg()
+    ]
 
     info['memory'] = psutil.virtual_memory()
     info['swap'] = psutil.swap_memory()
